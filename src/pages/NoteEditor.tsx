@@ -31,6 +31,7 @@ export default function NoteEditor() {
     ) => {
         if (!note) return
         setNote({...note, [e.target.name]: e.target.value})
+        console.log(note)
     }
 
     const clickOnOptions = () => {
@@ -41,7 +42,6 @@ export default function NoteEditor() {
     }
 
     const clickOnBack = () => {
-        console.log(note?.title)
         if (note?.title.length === 0 && note?.content.length === 0) {
             navigate('/')
         } else {
@@ -58,7 +58,7 @@ export default function NoteEditor() {
     }
 
     return (
-        <div className="min-h-screen p-3">
+        <div className="min-h-screen p-3 flex flex-col">
             <div className="flex justify-between p-3">
                 <button onClick={clickOnBack}>
                     <IoMdArrowBack className="h-8 w-8" />
@@ -67,18 +67,20 @@ export default function NoteEditor() {
                     <HiOutlineDotsVertical className="h-8 w-8" />
                 </button>
             </div>
-            <form className="flex flex-col justify-end p-3">
+            <form className="flex-1 flex flex-col p-3">
                 <div className="flex flex-col">
                     <input
                         className="font-bold text-xl p-1 outline-none mb-3"
                         type="text"
                         name="title"
+                        placeholder='Título'
                         onChange={handleChange}
                         value={note?.title}
                     />
                     <textarea
-                        className="resize-none text-lg p-1 outline-none"
+                        className="resize-none text-lg p-1 outline-none min-h-96"
                         name="content"
+                        placeholder='Escribe tu nota aquí'
                         onChange={handleChange}
                         value={note?.content}></textarea>
                 </div>
