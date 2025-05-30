@@ -10,7 +10,10 @@ export const NotesProvider = ({ children }: { children: ReactNode }) => {
     const createNote = (note: Note) => {
         setNotes(prev => [...prev, note])
     };
-    const updateNote = () => {};
+    const updateNote = (note: Note) => {
+        const temp = notes.map((el) => el.id === note.id ? note : el)
+        setNotes(temp)
+    };
     const deleteNote = () => {};
     return (
         <NotesContext.Provider

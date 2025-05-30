@@ -11,6 +11,6 @@ export type Note = {
 export type NotesContextType = {
     notes: Note[];
     createNote: (note: Note) => void;
-    updateNote: () => void;
-    deleteNote: () => void;
+    updateNote: (note: Note) => void;
+    deleteNote: (id: string) => void;
 };

@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function NoteEditor() {
     const [optionsModalActive, setOptionsModalActive] = useState(false);
-    const { notes, createNote } = useNotes();
+    const { notes, createNote, updateNote } = useNotes();
     const params = useParams();
     const [note, setNote] = useState(() => {
         const found = notes.find((note) => note.id === params.id);
@@ -31,7 +31,6 @@ export default function NoteEditor() {
     ) => {
         if (!note) return;
         setNote({ ...note, [e.target.name]: e.target.value });
-        console.log(note);
     };
 
     const clickOnOptions = () => {
@@ -48,6 +47,7 @@ export default function NoteEditor() {
             navigate('/');
         } else if (found) {
             console.log('Actualizar nota')
+            updateNote(note)
             navigate('/')
         } else {
             createNote(note);

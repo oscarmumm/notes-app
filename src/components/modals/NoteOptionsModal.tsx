@@ -8,6 +8,11 @@ type NoteOptionsModalProps = {
     closeOptionsModal: () => void
 }
 
+// TO DO:
+// - LOGICA PARA FIJAR NOTAS
+// - MODAL PARA SELECCIONAR COLOR
+// - LOGICA PAR ALIMINAR LA NOTA
+
 export default function NoteOptionsModal({
     closeOptionsModal,
 }: NoteOptionsModalProps) {
