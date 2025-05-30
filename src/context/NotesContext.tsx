@@ -7,7 +7,9 @@ export const NotesContext = createContext<NotesContextType | undefined>(undefine
 
 export const NotesProvider = ({ children }: { children: ReactNode }) => {
     const [notes, setNotes] = useState<Note[]>(placeholderNotes);
-    const createNote = () => {};
+    const createNote = (note: Note) => {
+        setNotes(prev => [...prev, note])
+    };
     const updateNote = () => {};
     const deleteNote = () => {};
     return (
