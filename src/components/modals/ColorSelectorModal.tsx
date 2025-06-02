@@ -24,14 +24,14 @@ export default function ColorSelectorModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed top-0 left-0 flex flex-col justify-end h-screen w-full modal-main-bg'
+            className='fixed top-0 left-0 flex flex-col justify-end items-center h-screen w-full modal-main-bg'
         >
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ type: 'tween', delay: 0 }}
-                className='flex flex-col bg-sky-800 py-3 font-semibold rounded-tl-4xl rounded-tr-4xl'
+                className='flex flex-col bg-sky-800 py-3 font-semibold rounded-tl-4xl rounded-tr-4xl w-full lg:max-w-4xl'
             >
                 <div className='grid grid-cols-4 gap-5 justify-items-center p-5'>
                     <button

@@ -60,9 +60,9 @@ export default function NoteEditor() {
         <div
             className={`${
                 note.color?.replace('00', '50') || 'bg-sky-950'
-            } min-h-screen p-3 flex flex-col`}
+            } min-h-screen p-3 flex flex-col items-center justify-center lg:max-w-4xl w-full mx-auto`}
         >
-            <div className='flex justify-between p-3'>
+            <div className='w-full flex justify-between p-3 xl:mb-5'>
                 <button onClick={clickOnBack}>
                     <IoMdArrowBack className='h-8 w-8' />
                 </button>
@@ -70,7 +70,7 @@ export default function NoteEditor() {
                     <HiOutlineDotsVertical className='h-8 w-8' />
                 </button>
             </div>
-            <form className='flex-1 flex flex-col p-3'>
+            <form className='w-full flex-1 flex flex-col p-3'>
                 <div className='flex flex-col'>
                     <input
                         className='font-bold text-xl p-1 outline-none mb-3'

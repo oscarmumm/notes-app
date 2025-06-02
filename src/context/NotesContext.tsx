@@ -7,17 +7,15 @@ export const NotesContext = createContext<NotesContextType | undefined>(
     undefined
 );
 
-// para simular notas persistentes en el localStorage debemos inicializarlas 
-// en el useState donde está placeholderNotes
-// antes de hacer eso hacer unas buenas notas placeholder para activar como ejemplo
-// ANTES DE HACER ESTO ASEGURARSE DE TENER TODAS LAS FUNCIONALIDADES MINIMAS ANDANDO CORRECTAMENTE
-
 export const NotesProvider = ({ children }: { children: ReactNode }) => {
-    const [notes, setNotes] = useState<Note[]>(placeholderNotes);
+    const [notes, setNotes] = useState<Note[]>(() => {
+        const saved = localStorage.getItem('notes')
+        return saved ? JSON.parse(saved) : placeholderNotes
+    });
 
-    // useEffect(() => {
-    //     localStorage.setItem('notes', JSON.stringify(notes))
-    // }, [notes])
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes))
+    }, [notes])
 
     const createNote = (note: Note) => {
         setNotes((prev) => [...prev, note]);

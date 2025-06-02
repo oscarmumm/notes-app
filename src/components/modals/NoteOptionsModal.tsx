@@ -73,7 +73,7 @@ export default function NoteOptionsModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed top-0 left-0 flex flex-col justify-end h-screen w-full modal-main-bg'
+            className='fixed top-0 left-0 flex flex-col justify-end items-center h-screen w-full modal-main-bg'
         >
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -82,7 +82,7 @@ export default function NoteOptionsModal({
                 transition={{ type: 'tween', delay: 0 }}
                 className={`${
                     note.color || 'bg-sky-900'
-                } flex flex-col py-3 font-semibold rounded-tl-4xl rounded-tr-4xl`}
+                } flex flex-col py-3 font-semibold rounded-tl-4xl rounded-tr-4xl w-1/2 lg:max-w-4xl`}
             >
                 {note.pinned ? (
                     <button
