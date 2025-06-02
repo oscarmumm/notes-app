@@ -87,7 +87,7 @@ export default function NoteEditor() {
             </form>
             <AnimatePresence>
                 {optionsModalActive && (
-                    <NoteOptionsModal closeOptionsModal={closeOptionsModal} />
+                    <NoteOptionsModal closeOptionsModal={closeOptionsModal} note={note} />
                 )}
             </AnimatePresence>
         </div>

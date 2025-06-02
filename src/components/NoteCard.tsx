@@ -1,6 +1,7 @@
 import type { Note } from '../types';
 import { useNavigate } from 'react-router';
 import { TiPin } from 'react-icons/ti';
+import { IconContext } from 'react-icons';
 
 type NoteCardProps = {
     note: Note;
@@ -16,9 +17,9 @@ export default function NoteCard({ note }: NoteCardProps) {
             className='bg-sky-900 p-3 rounded-lg shadow-xl'
             onClick={handleClick}
         >
-            <div className='flex'>
-                <h3 className='font-bold'>{note.title}</h3>
-                {note.pinned && <TiPin className='h-8 w-8' />}
+            <div className='flex justify-between mb-3'>
+                <h3 className='font-bold text-lg'>{note.title}</h3>
+                    {note.pinned && <TiPin className='min-w-6 h-6' />}
             </div>
             <p>{note.content}</p>
         </div>
