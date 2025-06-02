@@ -41,23 +41,27 @@ export default function NoteEditor() {
     };
 
     const clickOnBack = () => {
-        const found = notes.find((n) => n.id === note.id)
+        const found = notes.find((n) => n.id === note.id);
         if (note?.title.length === 0 && note?.content.length === 0) {
-            console.log('Nota vacía')
+            console.log('Nota vacía');
             navigate('/');
         } else if (found) {
-            console.log('Actualizar nota')
-            updateNote(note)
-            navigate('/')
+            console.log('Actualizar nota');
+            updateNote(note);
+            navigate('/');
         } else {
             createNote(note);
-            console.log('Nueva nota creada')
+            console.log('Nueva nota creada');
             navigate('/');
         }
     };
 
     return (
-        <div className='min-h-screen p-3 flex flex-col'>
+        <div
+            className={`${
+                note.color?.replace('00', '50') || 'bg-sky-950'
+            } min-h-screen p-3 flex flex-col`}
+        >
             <div className='flex justify-between p-3'>
                 <button onClick={clickOnBack}>
                     <IoMdArrowBack className='h-8 w-8' />
@@ -87,7 +91,10 @@ export default function NoteEditor() {
             </form>
             <AnimatePresence>
                 {optionsModalActive && (
-                    <NoteOptionsModal closeOptionsModal={closeOptionsModal} note={note} />
+                    <NoteOptionsModal
+                        closeOptionsModal={closeOptionsModal}
+                        note={note}
+                    />
                 )}
             </AnimatePresence>
         </div>

@@ -3,3 +3,5 @@
 .modal-main-bg {
     background: rgba(0, 0, 0, 0.6);
 }
+
+@source inline('bg-red-950 , bg-blue-950 , bg-yellow-950 , bg-emerald-950 , bg-indigo-950');

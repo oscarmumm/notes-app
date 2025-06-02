@@ -14,5 +14,6 @@ export type NotesContextType = {
     updateNote: (note: Note) => void;
     deleteNote: (id: string) => void;
     pinNote: (id: string) => void;
-    unPinNote: (id:string) => void
+    unPinNote: (id: string) => void;
+    selectNoteColor: (id: string, color: string) => void;
 };

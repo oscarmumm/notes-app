@@ -29,23 +29,42 @@ export const NotesProvider = ({ children }: { children: ReactNode }) => {
             if (el.id === id) {
                 el.pinned = true;
             }
-            return el
+            return el;
+        });
+        setNotes(temp);
+    };
+
+    const unPinNote = (id: string) => {
+        const temp = notes.map((el) => {
+            if (el.id === id) {
+                el.pinned = false;
+            }
+            return el;
+        });
+        setNotes(temp);
+    };
+
+    const selectNoteColor = (id: string, color: string) => {
+        const temp = notes.map((el) => {
+            if (el.id === id) {
+                el.color = color;
+            }
+            return el;
         });
         setNotes(temp)
     };
-
-    const unPinNote = (id:string) => {
-        const temp = notes.map((el) => {
-            if(el.id === id) {
-                el.pinned = false
-            }
-            return el
-        })
-        setNotes(temp)
-    }
+    
     return (
         <NotesContext.Provider
-            value={{ notes, createNote, updateNote, deleteNote, pinNote, unPinNote }}
+            value={{
+                notes,
+                createNote,
+                updateNote,
+                deleteNote,
+                pinNote,
+                unPinNote,
+                selectNoteColor
+            }}
         >
             {children}
         </NotesContext.Provider>

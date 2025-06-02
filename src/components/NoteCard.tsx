@@ -1,7 +1,6 @@
 import type { Note } from '../types';
 import { useNavigate } from 'react-router';
 import { TiPin } from 'react-icons/ti';
-import { IconContext } from 'react-icons';
 
 type NoteCardProps = {
     note: Note;
@@ -14,7 +13,7 @@ export default function NoteCard({ note }: NoteCardProps) {
     };
     return (
         <div
-            className='bg-sky-900 p-3 rounded-lg shadow-xl'
+            className={`${note.color || 'bg-sky-900'} p-3 rounded-lg shadow-xl`}
             onClick={handleClick}
         >
             <div className='flex justify-between mb-3'>
