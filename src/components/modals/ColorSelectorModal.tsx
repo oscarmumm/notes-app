@@ -10,7 +10,7 @@ type ColorSelectorModalProps = {
 export default function ColorSelectorModal({
     closeColorSelectorModal, note
 }: ColorSelectorModalProps) {
-    const { notes, selectNoteColor } = useNotes();
+    const { selectNoteColor } = useNotes();
     const clickOnColor = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
